@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="com.smu.update"
+      version="1.0.0">
+    <name>Update</name>
+    <description>App update for Cordova</description>
+    <license>SMU</license>
+    <keywords>cordova,update</keywords>
+
+    <js-module src="www/update.js" name="Update">
+        <clobbers target="Update" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Update" >
+                <param name="android-package" value="com.smu.plugin.Update"/>
+            </feature>
+        </config-file>
+        
+       	<config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <source-file src="src/com/smu/plugin/Update.java" target-dir="src/com/smu/plugin" />
+    </platform>
+</plugin>
